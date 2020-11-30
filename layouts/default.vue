@@ -30,7 +30,7 @@
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-menu</v-icon>
+        <v-icon>mdi-apps</v-icon>
       </v-btn>
       <v-avatar color="blue" size="32">
         <span>{{ initials }}</span>
