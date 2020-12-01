@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -59,11 +59,6 @@
 
 <script>
 export default {
-  async fetch() {
-    this.userData = await fetch('http://localhost:3000/me').then((res) =>
-      res.json()
-    )
-  },
   data() {
     return {
       clipped: false,
