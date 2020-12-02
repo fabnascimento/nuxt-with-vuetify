@@ -5,12 +5,7 @@
       <v-toolbar-title v-text="title" />
       <v-spacer />
     </v-app-bar>
-    <v-skeleton-loader
-      v-if="sites.length < 1"
-      class="mx-auto"
-      type="list-item-avatar-three-line"
-    ></v-skeleton-loader>
-    <span>{{ sites.length }}</span>
+    <SitesSkeleton :active="sites.length < 1" />
     <div v-for="site in sites" :key="site.id">
       <span>{{ site.title }}</span>
     </div>
