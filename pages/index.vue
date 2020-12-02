@@ -6,6 +6,7 @@
       <v-spacer />
     </v-app-bar>
     <SitesSkeleton :active="sites.length < 1" />
+    <v-btn @click="toggle">TOGGLE</v-btn>
     <div v-for="site in sites" :key="site.id">
       <span>{{ site.title }}</span>
     </div>
@@ -23,6 +24,12 @@ export default {
   computed: {
     sites() {
       return this.$store.state.sites.list
+    },
+  },
+  // TODO: change location
+  methods: {
+    toggle() {
+      this.$vuetify.theme.isDark = !this.$vuetify.theme.isDark
     },
   },
 }
