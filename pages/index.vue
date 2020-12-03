@@ -6,16 +6,19 @@
       <v-spacer />
     </v-app-bar>
     <SitesSkeleton :active="sites.length < 1" />
-    <v-btn @click="toggle">TOGGLE</v-btn>
     <div v-for="site in sites" :key="site.id">
-      <span>{{ site.title }}</span>
+      <NuxtLink :to="`/site/${site.id}`">
+        <span>{{ site.title }}</span>
+      </NuxtLink>
     </div>
   </div>
 </template>
 <script>
-// import { mapMutations } from 'vuex'
-
 export default {
+  // async asyncData({ $axios, params }) {
+  //   const sites = await $axios.$get(`http://localhost:3000/sites`)
+  //   return { sites }
+  // },
   data() {
     return {
       title: 'Sites',
@@ -26,11 +29,8 @@ export default {
       return this.$store.state.sites.list
     },
   },
-  // TODO: change location
-  methods: {
-    toggle() {
-      this.$vuetify.theme.isDark = !this.$vuetify.theme.isDark
-    },
+  mounted() {
+    this.$store.dispatch('sites/getSites')
   },
 }
 </script>
