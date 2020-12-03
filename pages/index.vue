@@ -7,14 +7,18 @@
     </v-app-bar>
     <SitesSkeleton :active="sites.length < 1" />
     <div v-for="site in sites" :key="site.id">
-      <span>{{ site.title }}</span>
+      <NuxtLink :to="`/site/${site.id}`">
+        <span>{{ site.title }}</span>
+      </NuxtLink>
     </div>
   </div>
 </template>
 <script>
-// import { mapMutations } from 'vuex'
-
 export default {
+  // async asyncData({ $axios, params }) {
+  //   const sites = await $axios.$get(`http://localhost:3000/sites`)
+  //   return { sites }
+  // },
   data() {
     return {
       title: 'Sites',
@@ -24,6 +28,9 @@ export default {
     sites() {
       return this.$store.state.sites.list
     },
+  },
+  mounted() {
+    this.$store.dispatch('sites/getSites')
   },
 }
 </script>
