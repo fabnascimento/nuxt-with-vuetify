@@ -24,7 +24,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar class="primary" :clipped-left="clipped" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-spacer />
       <v-toolbar-title v-text="title" />
@@ -32,7 +32,7 @@
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-apps</v-icon>
       </v-btn>
-      <v-avatar color="blue" size="32">
+      <v-avatar color="white" size="32">
         <span>{{ initials }}</span>
       </v-avatar>
     </v-app-bar>
@@ -97,6 +97,9 @@ export default {
         .map((name) => name.charAt(0))
         .reduce((initials, nextLetter) => initials.concat(nextLetter))
     },
+  },
+  mounted() {
+    this.$store.dispatch('getUserData')
   },
 }
 </script>

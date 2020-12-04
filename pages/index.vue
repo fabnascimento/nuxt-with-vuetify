@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar>
+    <v-app-bar class="primary">
       <v-spacer />
       <v-toolbar-title v-text="title" />
       <v-spacer />
@@ -8,12 +8,12 @@
     <div>
       <!-- Toolbar -->
     </div>
-    <v-list three-line>
+    <v-list three-line :v-if="!loading">
       <template v-for="site in sites">
         <NuxtLink :key="site.id" :to="`/site/${site.id}`">
           <v-list-item :key="site.id">
             <v-list-item-avatar>
-              <v-img :src="site.images[0]"></v-img>
+              <v-img :lazy-src="site.images[0]"></v-img>
             </v-list-item-avatar>
             <!-- Text content -->
             <v-list-item-content>
@@ -36,7 +36,14 @@
         </NuxtLink>
       </template>
     </v-list>
-    <SitesSkeleton :active="sites.length < 1" />
+    <SitesSkeleton :active="loading" />
+    <v-pagination
+      v-model="page"
+      :length="totalPages"
+      :total-visible="totalVisible"
+      :disabled="loading"
+      @input="changePage"
+    ></v-pagination>
   </div>
 </template>
 <script>
@@ -44,15 +51,32 @@ export default {
   data() {
     return {
       title: 'Sites',
+      page: 1,
+      totalVisible: 20,
     }
   },
   computed: {
     sites() {
       return this.$store.state.sites.list
     },
+    totalCount() {
+      return this.$store.state.sites.totalCount
+    },
+    totalPages() {
+      return Math.ceil(this.totalCount / this.totalVisible)
+    },
+    loading() {
+      return this.$store.state.sites.loading
+    },
   },
   mounted() {
-    this.$store.dispatch('sites/getSites')
+    this.$store.dispatch('sites/getSites', this.page)
+  },
+  methods: {
+    changePage() {
+      console.log(this.page)
+      this.$store.dispatch('sites/getSites', this.page)
+    },
   },
 }
 </script>
