@@ -74,7 +74,6 @@ export default {
   },
   methods: {
     changePage() {
-      console.log(this.page)
       this.$store.dispatch('sites/getSites', this.page)
     },
   },
