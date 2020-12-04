@@ -8,7 +8,6 @@
     <div>
       <!-- Toolbar -->
     </div>
-    <SitesSkeleton :active="sites.length < 1" />
     <v-list three-line>
       <template v-for="site in sites">
         <NuxtLink :key="site.id" :to="`/site/${site.id}`">
@@ -16,6 +15,7 @@
             <v-list-item-avatar>
               <v-img :src="site.images[0]"></v-img>
             </v-list-item-avatar>
+            <!-- Text content -->
             <v-list-item-content>
               <v-list-item-title>
                 <span>{{ site.title }}</span>
@@ -36,14 +36,11 @@
         </NuxtLink>
       </template>
     </v-list>
+    <SitesSkeleton :active="sites.length < 1" />
   </div>
 </template>
 <script>
 export default {
-  // async asyncData({ $axios, params }) {
-  //   const sites = await $axios.$get(`http://localhost:3000/sites`)
-  //   return { sites }
-  // },
   data() {
     return {
       title: 'Sites',
