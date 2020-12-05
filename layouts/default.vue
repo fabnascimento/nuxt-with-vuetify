@@ -32,7 +32,7 @@
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-apps</v-icon>
       </v-btn>
-      <v-avatar color="white" size="32">
+      <v-avatar color="white black--text" size="32">
         <span>{{ initials }}</span>
       </v-avatar>
     </v-app-bar>
@@ -43,11 +43,16 @@
     </v-main>
     <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
       <v-list>
-        <v-list-item @click.native="right = !right">
+        <v-list-item>
           <v-list-item-action>
-            <v-icon light> mdi-repeat </v-icon>
+            <v-switch
+              v-model="$vuetify.theme.dark"
+              hint="This toggles the global state of the Vuetify theme"
+              inset
+              label="Theme Dark"
+              persistent-hint
+            ></v-switch>
           </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -67,32 +72,19 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
+          title: 'Sites',
           to: '/',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
         },
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
       title: 'Scheduling',
-      userData: {
-        id: '',
-        email: '',
-        username: '',
-        givenName: '',
-        locale: '',
-        avatar: '',
-      },
     }
   },
   computed: {
     initials() {
-      return this.userData.givenName
+      return this.$store.state.userData.givenName
         .split(/\s/)
         .map((name) => name.charAt(0))
         .reduce((initials, nextLetter) => initials.concat(nextLetter))

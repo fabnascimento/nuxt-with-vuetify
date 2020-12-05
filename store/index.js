@@ -1,5 +1,12 @@
 export const state = () => ({
-  userData: {},
+  userData: {
+    id: '',
+    email: '',
+    username: '',
+    givenName: '',
+    locale: '',
+    avatar: '',
+  },
 })
 
 export const mutations = {
