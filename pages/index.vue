@@ -10,7 +10,7 @@
     </div>
     <v-list three-line :v-if="!loading">
       <template v-for="site in sites">
-        <NuxtLink :key="site.id" :to="`/site/${site.id}`">
+        <NuxtLink :key="site.id" :to="`/site/${site.id}`" class="site-item">
           <v-list-item :key="site.id">
             <v-list-item-avatar>
               <v-img :lazy-src="site.images[0]"></v-img>
@@ -79,3 +79,8 @@ export default {
   },
 }
 </script>
+<style lang="scss">
+.site-item {
+  text-decoration: none;
+}
+</style>

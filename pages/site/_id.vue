@@ -1,10 +1,36 @@
 <template>
   <div>
     <!-- Site name -->
-    <div>
-      <p>{{ siteData.title }}</p>
-      <p>{{ siteFormattedAddress }}</p>
-      <p>{{ mainContactFullName }}</p>
+    <div class="site-header-info">
+      <div>
+        <NuxtLink :key="siteData.id" to="/">
+          <v-btn icon color="white">
+            <v-icon dark>mdi-chevron-left</v-icon>
+          </v-btn>
+        </NuxtLink>
+      </div>
+      <div>
+        <v-list three-line>
+          <template>
+            <v-list-item>
+              <v-list-item-avatar>
+                <v-img :lazy-src="siteData.images[0]"></v-img>
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <v-list-item-title>
+                  <span>{{ siteData.title }}</span>
+                </v-list-item-title>
+                <v-list-item-subtitle>
+                  <span>{{ siteFormattedAddress }}</span>
+                </v-list-item-subtitle>
+                <v-list-item-subtitle>
+                  <span>{{ mainContactFullName }}</span>
+                </v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </template>
+        </v-list>
+      </div>
     </div>
     <!-- Image -->
     <v-img :lazy-src="siteData.images[0]"></v-img>
@@ -90,3 +116,13 @@ export default {
   },
 }
 </script>
+<style lang="scss">
+.site-header-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a {
+    text-decoration: none;
+  }
+}
+</style>
