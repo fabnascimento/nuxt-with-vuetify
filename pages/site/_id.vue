@@ -1,8 +1,8 @@
 <template>
   <div>
-    <!-- Site name -->
-    <div class="site-header-info">
-      <div>
+    <!-- Site Info -->
+    <div class="site-header-info primary">
+      <div class="primary">
         <NuxtLink :key="siteData.id" to="/">
           <v-btn icon color="white">
             <v-icon dark>mdi-chevron-left</v-icon>
@@ -10,20 +10,20 @@
         </NuxtLink>
       </div>
       <div>
-        <v-list three-line>
+        <v-list three-line class="primary">
           <template>
             <v-list-item>
               <v-list-item-avatar>
                 <v-img :lazy-src="siteData.images[0]"></v-img>
               </v-list-item-avatar>
               <v-list-item-content>
-                <v-list-item-title>
-                  <span>{{ siteData.title }}</span>
+                <v-list-item-title class="white--text">
+                  {{ siteData.title }}
                 </v-list-item-title>
-                <v-list-item-subtitle>
+                <v-list-item-subtitle class="white--text">
                   <span>{{ siteFormattedAddress }}</span>
                 </v-list-item-subtitle>
-                <v-list-item-subtitle>
+                <v-list-item-subtitle class="white--text">
                   <span>{{ mainContactFullName }}</span>
                 </v-list-item-subtitle>
               </v-list-item-content>
@@ -32,13 +32,14 @@
         </v-list>
       </div>
     </div>
+    <!-- /Site Info -->
     <!-- Image -->
     <v-img :lazy-src="siteData.images[0]"></v-img>
     <!-- contact info -->
     <v-list two-line>
       <v-list-item>
         <v-list-item-icon>
-          <v-icon color="white">mdi-account</v-icon>
+          <v-icon>mdi-account</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title v-text="mainContactFullName"></v-list-item-title>
@@ -52,7 +53,7 @@
     <v-list>
       <v-list-item>
         <v-list-item-icon>
-          <v-icon color="white">mdi-phone</v-icon>
+          <v-icon>mdi-phone</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title
@@ -65,7 +66,7 @@
     <v-list>
       <v-list-item>
         <v-list-item-icon>
-          <v-icon color="white">mdi-email</v-icon>
+          <v-icon>mdi-email</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title
@@ -78,7 +79,7 @@
     <v-list two-line>
       <v-list-item>
         <v-list-item-icon>
-          <v-icon color="white">mdi-map-marker</v-icon>
+          <v-icon>mdi-map-marker</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title
