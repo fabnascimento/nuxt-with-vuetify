@@ -5,9 +5,8 @@
       <v-toolbar-title class="white--text" v-text="title" />
       <v-spacer />
     </v-app-bar>
-    <div>
-      <!-- Toolbar -->
-    </div>
+    <ActionBar />
+    <!-- Sites list -->
     <v-list three-line :v-if="!loading">
       <template v-for="site in sites">
         <NuxtLink :key="site.id" :to="`/site/${site.id}`" class="site-item">
