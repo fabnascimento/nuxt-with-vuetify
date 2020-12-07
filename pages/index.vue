@@ -2,7 +2,7 @@
   <div>
     <v-app-bar class="primary">
       <v-spacer />
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title class="white--text" v-text="title" />
       <v-spacer />
     </v-app-bar>
     <div>
