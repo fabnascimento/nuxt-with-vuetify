@@ -13,7 +13,7 @@
         <NuxtLink :key="site.id" :to="`/site/${site.id}`" class="site-item">
           <v-list-item :key="site.id">
             <v-list-item-avatar>
-              <v-img :lazy-src="site.images[0]"></v-img>
+              <v-img :src="site.images[0]"></v-img>
             </v-list-item-avatar>
             <!-- Text content -->
             <v-list-item-content>

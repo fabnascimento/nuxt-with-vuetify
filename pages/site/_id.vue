@@ -14,7 +14,7 @@
           <template>
             <v-list-item>
               <v-list-item-avatar>
-                <v-img :lazy-src="siteData.images[0]"></v-img>
+                <v-img :src="siteData.images[0]"></v-img>
               </v-list-item-avatar>
               <v-list-item-content>
                 <v-list-item-title class="white--text">
@@ -34,7 +34,7 @@
     </div>
     <!-- /Site Info -->
     <!-- Image -->
-    <v-img :lazy-src="siteData.images[0]"></v-img>
+    <v-img :src="siteData.images[0]"></v-img>
     <!-- contact info -->
     <v-list two-line>
       <v-list-item>
