@@ -31,6 +31,11 @@
                 }}
               </v-list-item-subtitle>
             </v-list-item-content>
+            <v-list-item-action class="d-flex align-self-center">
+              <v-btn icon>
+                <v-icon>mdi-chevron-right</v-icon>
+              </v-btn>
+            </v-list-item-action>
           </v-list-item>
           <v-divider />
         </NuxtLink>
