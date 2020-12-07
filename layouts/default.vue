@@ -27,7 +27,7 @@
     <v-app-bar class="primary" :clipped-left="clipped" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-spacer />
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title class="white--text" v-text="title" />
       <v-spacer />
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-apps</v-icon>

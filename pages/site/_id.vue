@@ -1,15 +1,15 @@
 <template>
   <div>
     <!-- Site Info -->
-    <div class="site-header-info primary">
-      <div class="primary">
+    <div class="site-info-header primary">
+      <div class="site-info-header-action primary">
         <NuxtLink :key="siteData.id" to="/">
           <v-btn icon color="white">
-            <v-icon dark>mdi-chevron-left</v-icon>
+            <v-icon dark size="32">mdi-chevron-left</v-icon>
           </v-btn>
         </NuxtLink>
       </div>
-      <div>
+      <div class="site-info">
         <v-list three-line class="primary">
           <template>
             <v-list-item>
@@ -118,12 +118,17 @@ export default {
 }
 </script>
 <style lang="scss">
-.site-header-info {
+.site-info-header {
   display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   a {
     text-decoration: none;
+  }
+  .site-info {
+    flex-grow: 2;
   }
 }
 </style>
